@@ -9,6 +9,8 @@ scrambles = open("scrambles.txt", "r")
 # Opens mean of 3 text file to write to.
 mo3 = open("Mo3.txt", "a")
 solves_txt = open("solves.txt", "a")
+
+
 # Select and press alt and / to comment out multiple lines
 # alt to insert multiple cursors
 
@@ -19,7 +21,7 @@ solves_txt = open("solves.txt", "a")
 
 
 def start():
-    num_of_solves = 3
+    num_of_solves = 30
     attempts = 0
     solves = 0
     display_count = 1
@@ -146,14 +148,42 @@ def start():
     solves_txt.write(percent)
 
     solves_txt.write(f"Mean of Bo3: {mean(solve_bo3)}\n\n")
-    return solve_bo3
+    return solve_bo3, display_list, display_count, num_of_solves
 
-bo3 = start()
+
+bo3, display_list, display_count, num_of_solves = start()
 
 # This is the end of the file
 gui.window()
 gui.draw_grid(600, 300, -300, -25)
-gui.draw_num(bo3 , y=-100)
+
+disp = 0
+lines = 0
+x_coord = -275
+y_coord = 248
+loop_num = 0
+list_num = 0
+pointer = False
+while lines < num_of_solves // 3:
+    lines += 1
+    if pointer:
+        pointer = False
+        disp = 0
+    while disp < 3:
+        gui.draw_num(display_list[list_num], x_coord, y_coord, size=15)
+        list_num += 1
+        disp += 1
+        x_coord += 45
+        if disp % 3 == 0:
+            pointer = True
+            y_coord -= 30
+            x_coord = -275
+
+
+# gui.draw_num(display_list[0], -275, 250, size=15)
+# gui.draw_num(display_list[1], -230, 250, size=15)
+# gui.draw_num(display_list[2], -185, 250, size=15)
+
 gui.keep_open()
 
 

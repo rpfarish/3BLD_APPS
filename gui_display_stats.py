@@ -8,14 +8,14 @@ def window():
     wn.setup(width=800, height=600)
 
 
-def draw_num(string_ip, x=0, y=0, color="white"):
+def draw_num(string_ip, x=0, y=0, color="white", size=15):
     pen = turtle.Turtle()
     pen.speed(0)
     pen.color(color)
     pen.penup()
     pen.hideturtle()
     pen.goto(x, y)
-    pen.write(string_ip, align="center", font=("Comic Sans", 24, "normal"))
+    pen.write(string_ip, align="center", font=("Comic Sans", size, "normal"))
 
 
 def draw_square(side_length_x, side_length_y, x=0, y=0, color="black"):

@@ -1,0 +1,2 @@
+# Corners
+A, B, J, F, G, H, E, K, L, N, O, P, R, M, S, T, C, V, W, Z, A, B, D, E, F, G, H, J, I, L, M, N, O, P, Z, R, S, T, C, V, W, X
